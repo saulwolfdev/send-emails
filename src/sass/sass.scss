@@ -1,0 +1,136 @@
+.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: aquamarine;
+    &-item{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+    background-color: azure;
+        &-img{
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+        &-title{
+            font-size: 24px;
+            font-weight: 300;
+        }
+        &-paragraph{
+            font-size: 16px
+        }
+        &-button{
+            background-color: rebeccapurple;
+            border-radius: 8px;
+            color:white;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            &:hover{
+                background-color: red;
+            }
+        }
+        
+    }
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #84b6ff;
+    &-item{
+
+    }
+    &-item-card{
+        padding: 14px;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 #fff;
+        box-sizing: border-box;
+            &:hover{
+                background-color: #e6e6e6;
+                padding: 14px;
+                border-radius: 8px;
+                box-shadow: 0 0 0 0 #fff;
+                cursor: pointer;
+            }
+        &-shopping{
+            display: flex;
+            align-items: center;
+            &-title{
+                padding-right: 16px;
+                font-size: 16px;
+            }
+        }
+        &-list{
+            display: none;
+            &-content{
+                padding: 24px;
+                border: 1px solid #888888;
+                position: absolute;
+                top: 70px;
+                right: 371px;
+                background-color: white;
+                border-radius: 8px;
+
+                &--dynamic{
+                  border-bottom: 1px solid gray;
+                  margin: 8px 8px;
+                    &-cards{
+                        display: flex;
+                        align-items: center;
+
+                        &-img{
+                        display: block;
+                        padding-right: 10px;
+                        }
+                        &-title{
+
+                        }
+                        &-paragraph{
+
+                        }
+                        &-count{
+
+                        }
+                        &-link{
+                            padding: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 20px;
+                            font-size: 14px;
+                            background-color: red;
+                        }
+                    }
+                }
+
+                &-clear{
+                    cursor: pointer;
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    background-color: #ffcbcb;
+                    width: 100%;
+                }
+            }
+
+
+        }
+    }
+}
