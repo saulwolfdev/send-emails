@@ -1,3 +1,3 @@
-# javascript-concept-review
+# envio de emails simulación
 Ejemplo de envio de Emails
 
