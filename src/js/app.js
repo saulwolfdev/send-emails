@@ -4,7 +4,7 @@ feather.replace();
 document.addEventListener("DOMContentLoaded", function () {
   
   
- const emailSend = {
+ const emailSendValues = {
     email: "",
     asunto: "",
     mensaje: ""
@@ -26,19 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
     //Validacion de inputs no estes vacios
     if (e.target.value.trim()==="") {
       showAlertErrors(`El campo ${e.target.id} es obligario`,e.target.parentElement);
+      emailSendValues[e.target.name]='';
+      verificacionEmailValuesElements();
       return;
     }
      //Validacion de correo este en el formato adecuado
     if (e.target.id==="email" && !validationEmail(e.target.value)) {
       showAlertErrors("El email no es valido", e.target.parentElement);
+      emailSendValues[e.target.name]='';
+      verificacionEmailValuesElements();
       return;
     }
     clearFormAlertElement(e.target.parentElement);
 
     //VALIDACION OK EMAIL
-    emailSend[e.target.name] = e.target.value.trim().toLowerCase();
-
-    console.log("informacion del correo",emailSend)
+    emailSendValues[e.target.name] = e.target.value.trim().toLowerCase();
+    console.log("informacion de los valores del correo OK",emailSendValues)
+    verificacionEmailValuesElements();
   }
 
   function showAlertErrors(message, referenceDomElement) {
@@ -77,16 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  function verificacionEmailValue(){
-    if (Object.values(emailSend).includes("")) {
-        buttonFormSubmit.classList.add('opacity-50');
-        buttonFormSubmit.disabled = true;
-        console.log("verificaciom OK form")
-        return;
-    } 
-    buttonFormSubmit.classList.remove('opacity-50');
-    buttonFormSubmit.disabled = false;
+  function verificacionEmailValuesElements(){
+  if(Object.values(emailSendValues).includes('')){
+    buttonFormSubmit.classList.add('opacity-50');
+    buttonFormSubmit.disabled = true;
+    return;
+  }
+  buttonFormSubmit.classList.remove('opacity-50');
+  buttonFormSubmit.disabled = false;
   }
 });
 
-///137
