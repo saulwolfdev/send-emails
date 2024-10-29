@@ -17,10 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const formElement = document.querySelector("#formulario");
   const buttonFormSubmit = document.querySelector('#formulario button[type="submit"]');
   const buttonFormReset = document.querySelector('#formulario button[type="reset"]');
+  const formSpinner = document.querySelector("#spinner");
 
   inputEmail.addEventListener("input", validationInputs);
   inputSubject.addEventListener("input", validationInputs);
   inputMessage.addEventListener("input", validationInputs);
+
+  formElement.addEventListener('submit', sendEmailSpinner);
 
 
   buttonFormReset.addEventListener('click',function(e){
@@ -33,6 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
       formElement.reset();
       verificacionEmailValuesElements();
   })
+
+function sendEmailSpinner(e){
+e.preventDefault();
+
+
+formSpinner.classList.add('flex');
+formSpinner.classList.remove('hidden');
+}
+
 
 //Validacion de INPUTS
   function validationInputs(e) {
