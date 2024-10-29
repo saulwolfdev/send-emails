@@ -16,10 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputMessage = document.querySelector("#mensaje");
   const formElement = document.querySelector("#formulario");
   const buttonFormSubmit = document.querySelector('#formulario button[type="submit"]');
+  const buttonFormReset = document.querySelector('#formulario button[type="reset"]');
 
   inputEmail.addEventListener("input", validationInputs);
   inputSubject.addEventListener("input", validationInputs);
   inputMessage.addEventListener("input", validationInputs);
+
+
+  buttonFormReset.addEventListener('click',function(e){
+      e.preventDefault();
+      //reinicar el objeto:
+      emailSendValues.email='',
+      emailSendValues.asunto='',
+      emailSendValues.mensaje=''
+
+      formElement.reset();
+      verificacionEmailValuesElements();
+  })
 
 //Validacion de INPUTS
   function validationInputs(e) {
