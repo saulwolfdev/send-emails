@@ -28,21 +28,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   buttonFormReset.addEventListener('click',function(e){
       e.preventDefault();
-      //reinicar el objeto:
-      emailSendValues.email='',
-      emailSendValues.asunto='',
-      emailSendValues.mensaje=''
-
-      formElement.reset();
+      hardResetForm();
       verificacionEmailValuesElements();
   })
 
 function sendEmailSpinner(e){
 e.preventDefault();
-
-
 formSpinner.classList.add('flex');
 formSpinner.classList.remove('hidden');
+
+setTimeout(()=>{
+  formSpinner.classList.remove('flex');
+  formSpinner.classList.add('hidden');
+
+  hardResetForm();
+  verificacionEmailValuesElements();
+
+
+  const alertSendOKMessage=document.createElement('P');
+        alertSendOKMessage.classList.add("bg-green-500","text-white","p-2","text-center");
+        alertSendOKMessage.textContent='El mensaje fue enviado correctamente';
+
+        formElement.appendChild(alertSendOKMessage);
+        setTimeout(() => {
+            alertSendOKMessage.remove();       
+        }, 3000);
+},3000)
 }
 
 
@@ -115,5 +126,15 @@ formSpinner.classList.remove('hidden');
   buttonFormSubmit.classList.remove('opacity-50');
   buttonFormSubmit.disabled = false;
   }
+
+ function hardResetForm(){
+        //reinicar el objeto:
+        emailSendValues.email='',
+        emailSendValues.asunto='',
+        emailSendValues.mensaje=''
+  
+        formElement.reset();
+ }
+
 });
 
